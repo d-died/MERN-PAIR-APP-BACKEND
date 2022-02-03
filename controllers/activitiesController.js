@@ -54,7 +54,6 @@ router.delete("/:id", async (req, res, next) => {
 
 
 //STRETCH
-//Update acvitity by id - PUT 
 ////Get activity by id/key 
 
 
