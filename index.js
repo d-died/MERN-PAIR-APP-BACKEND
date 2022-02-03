@@ -15,8 +15,10 @@ app.get("/", (req, res) => {
 })
 
 //CONTROLLERS
+const activitiesController = require("./controllers/activitiesController")
+app.use("/activity", activitiesController) //this is home route for the activitiesController
 
-
+//END CONTROLLERS
 app.use((err, req, res, next) => {
     const statusCode = res.statusCode || 500
     const message = err.message || "Internal Server Error"
@@ -27,3 +29,5 @@ app.use((err, req, res, next) => {
 app.listen(app.get("port"), () => {
     console.log(`PORT: ${app.get("port")} YUP`)
 })
+
+
