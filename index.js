@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }))
 
 //ROUTES
 app.get("/", (req, res) => {
-    res.redirect("/")
+    res.redirect("/activity")
 })
 
 //CONTROLLERS
