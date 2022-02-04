@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
 
 
 // Create new activity - POST 
-router.post('/', async (req, res, next )=>{
+router.route("/create").post('/', async (req, res, next )=>{
     try{
         const newActivity= await Activity.create(req.body)
     res.status(201).json(newActivity)
@@ -25,6 +25,7 @@ router.post('/', async (req, res, next )=>{
     }
     
 })
+//if we consolelog(req.body) we should be able to see whatever was input to our form in the backend console
 
 // Update activity by id  - PUT 
 router.put('/:id', async (req, res, next)=> {

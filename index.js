@@ -1,19 +1,35 @@
 const express = require("express")
+const bodyParser = require("body-parser")
 const app = express()
 const cors = require("cors");
 app.use(cors());
 require("./db/connection")
-app.set("port", 8080)
+app.set("port", 3001)
 
 
 //START MIDDLEWARE
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+//this passes the data we send into a workable format that we can use
+//this takes the url encoded data and passes it into an object, that we canse 
+//this allows us to access req.body 
+
 
 
 //ROUTES
 app.get("/", (req, res) => {
     res.redirect("/activity")
+})
+
+app.get("/home", (req, res) => {
+    res.json({
+        activity: "Bing bong",
+        participants: 8,
+    })
+})
+
+app.get("/api", (req, res) => {
+    res.json({ message: "Hello from server!"})
 })
 
 //CONTROLLERS

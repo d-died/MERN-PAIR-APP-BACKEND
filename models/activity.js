@@ -1,11 +1,16 @@
 const mongoose = require("../db/connection")
 
 const ActivitySchema = new mongoose.Schema({
-    activity: String,
-    type: String, 
-    participants: Number,
-    price: Number,
-    key: String
+    activity: {
+        type: String,
+        required: true
+    }
+    // type: {
+    //     type: String,
+    //     required: false 
+    // participants: Number,
+    // price: Number,
+    // key: String
 })
 
 const Activity = mongoose.model("Activity", ActivitySchema)
