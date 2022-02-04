@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
 
 
 // Create new activity - POST 
-router.route("/create").post('/', async (req, res, next )=>{
+router.post('/', async (req, res, next )=>{
     try{
         const newActivity= await Activity.create(req.body)
     res.status(201).json(newActivity)

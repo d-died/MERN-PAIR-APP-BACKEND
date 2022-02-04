@@ -4,12 +4,12 @@ const app = express()
 const cors = require("cors");
 app.use(cors());
 require("./db/connection")
-app.set("port", 3001)
+app.set("port", 8080)
 
 
 //START MIDDLEWARE
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 //this passes the data we send into a workable format that we can use
 //this takes the url encoded data and passes it into an object, that we canse 
 //this allows us to access req.body 
@@ -19,13 +19,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //ROUTES
 app.get("/", (req, res) => {
     res.redirect("/activity")
-})
-
-app.get("/home", (req, res) => {
-    res.json({
-        activity: "Bing bong",
-        participants: 8,
-    })
 })
 
 app.get("/api", (req, res) => {
