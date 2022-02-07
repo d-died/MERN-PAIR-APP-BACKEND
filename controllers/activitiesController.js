@@ -29,7 +29,7 @@ router.post('/', async (req, res, next )=>{
 
 // Update activity by id  - PUT 
 router.put('/:id', async (req, res, next)=> {
-    const activityToUpdate = await Activity.findOneAndUpdate(req.params.id, req.body, {new:true})
+    const activityToUpdate = await Activity.findByIdAndUpdate(req.params.id, req.body, {new:true})
     if(activityToUpdate){
         res.json(activityToUpdate)
     }else {
