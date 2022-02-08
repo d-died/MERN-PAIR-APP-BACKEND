@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
 
 
 // Create new activity - POST 
-router.route("/create").post('/', async (req, res, next )=>{
+router.post('/', async (req, res, next )=>{
     try{
         const newActivity= await Activity.create(req.body)
     res.status(201).json(newActivity)
@@ -29,7 +29,7 @@ router.route("/create").post('/', async (req, res, next )=>{
 
 // Update activity by id  - PUT 
 router.put('/:id', async (req, res, next)=> {
-    const activityToUpdate = await Activity.findOneAndUpdate(req.params.id, req.body, {new:true})
+    const activityToUpdate = await Activity.findByIdAndUpdate(req.params.id, req.body, {new:true})
     if(activityToUpdate){
         res.json(activityToUpdate)
     }else {
@@ -52,10 +52,6 @@ router.delete("/:id", async (req, res, next) => {
         next(err)
     }
 })
-
-
-//STRETCH
-////Get activity by id/key 
 
 
 module.exports = router
