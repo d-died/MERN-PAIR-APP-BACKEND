@@ -54,8 +54,4 @@ router.delete("/:id", async (req, res, next) => {
 })
 
 
-//STRETCH
-////Get activity by id/key 
-
-
 module.exports = router

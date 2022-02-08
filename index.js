@@ -18,16 +18,16 @@ app.use(express.urlencoded({ extended: true }))
 
 //ROUTES
 app.get("/", (req, res) => {
-    res.redirect("/activity")
+    res.redirect("/api/activity")
 })
 
-// app.get("/api", (req, res) => {
-//     res.json({ message: "Hello from server!"})
-// })
+app.get("/api", (req, res) => {
+    res.json({ message: "Hello from server!"})
+})
 
 //CONTROLLERS
 const activitiesController = require("./controllers/activitiesController")
-app.use("/activity", activitiesController) //this is home route for the activitiesController
+app.use("/api/activity", activitiesController) //this is home route for the activitiesController
 
 //END CONTROLLERS
 app.use((err, req, res, next) => {
